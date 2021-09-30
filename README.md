@@ -9,7 +9,7 @@
 ## Назначение папок
 - CashMemo - нефискальные (товарные) чеки
 - Certificates - подарочные сертификаты
-- ClientOrders -
+- ClientOrders - заказы\резервы
 - ClientCatalog - список контактов
 - EmailOrders - отчет на Email
 - ExtraPrinter - чеки на доп. принтеры
@@ -21,7 +21,7 @@
 - MasterReport - мастер отчетов
 - PriceTags - ценники
 - SaleDocs - документы к продаже 
-- SaleOrder -
+- SaleOrder - журнал продаж
 - SendWaybill - накладные на перемещение между торговыми точками
 - SendWaybillStorage - накладные на перемещение между складами
 - SummaryReport - сводный отчет
