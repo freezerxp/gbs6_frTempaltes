@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="11/17/2020 22:15:30" ReportInfo.CreatorVersion="2020.3.22.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+         
+  
+  public class ReportScript
+  {       
+   
+  }
+}
+
+             </ScriptText>
+  <Dictionary>
+    <BusinessObjectDataSource Name="paymentsSum" ReferenceName="paymentsSum" DataType="null" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Sum" DataType="System.Decimal"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="CompanyAddress" DataType="System.String"/>
+    <Parameter Name="CompanyName" DataType="System.String"/>
+    <Parameter Name="CompanyPhone" DataType="System.String"/>
+    <Parameter Name="CompanyPublicPointName" DataType="System.String"/>
+    <Parameter Name="CompanyInfo" DataType="System.String"/>
+    <Parameter Name="CompanyInn" DataType="System.String"/>
+    <Parameter Name="CompanyKPP" DataType="System.String"/>
+    <Parameter Name="CompanyOGRN" DataType="System.String"/>
+    <Parameter Name="CompanyBank" DataType="System.String"/>
+    <Parameter Name="CompanyBik" DataType="System.String"/>
+    <Parameter Name="CompanyKs" DataType="System.String"/>
+    <Parameter Name="CompanyRs" DataType="System.String"/>
+    <Parameter Name="DbName" DataType="System.String"/>
+    <Parameter Name="DateFinishReport" DataType="System.DateTime"/>
+    <Parameter Name="DateStartReport" DataType="System.DateTime"/>
+    <Parameter Name="MoneyIncomeSum" DataType="System.Decimal"/>
+    <Parameter Name="MoneyOutcomeSum" DataType="System.Decimal"/>
+    <Parameter Name="SumCash" DataType="System.Decimal"/>
+    <Parameter Name="TotalGoods" DataType="System.Decimal"/>
+    <Parameter Name="TotalReturnCount" DataType="System.Decimal"/>
+    <Parameter Name="TotalReturnsSum" DataType="System.Decimal"/>
+    <Parameter Name="TotalSaleSum" DataType="System.Decimal"/>
+    <Parameter Name="TotalSalesCount" DataType="System.Decimal"/>
+    <Parameter Name="IncomeSum" DataType="System.Decimal"/>
+    <Parameter Name="DiscountsSum" DataType="System.Decimal"/>
+    <Total Name="TotalPayments" Expression="[paymentsSum.Sum]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="264.6" CanGrow="true">
+      <TextObject Name="Text5" Top="47.25" Width="715.38" Height="28.35" Fill.Color="Gainsboro" CanGrow="true" Text="Сводный отчет из [DbName] за период c [FormatDateTime([DateStartReport], &quot;dd.MM.yyyy&quot;)] по [FormatDateTime([DateFinishReport], &quot;dd.MM.yyyy&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 14pt, style=Bold" TextFill.Color="ControlText"/>
+      <TextObject Name="Text1" Top="28.35" Width="689.85" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[CompanyInfo]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Top="9.45" Width="689.85" Height="18.9" CanGrow="true" CanShrink="true" Text="[CompanyName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text2" Top="94.5" Width="207.9" Height="18.9" Fill.Color="LightGray" Text="Продажи" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text3" Top="122.85" Width="103.95" Height="18.9" Text="Всего продаж:" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Top="141.75" Width="103.95" Height="18.9" Text="Всего товаров:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Top="217.35" Width="103.95" Height="18.9" Text="Возвратов:" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Top="236.25" Width="103.95" Height="18.9" Text="На сумму:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Top="189" Width="207.9" Height="18.9" Fill.Color="LightGray" Text="Возвраты" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text10" Left="245.7" Top="122.85" Width="103.95" Height="18.9" Text="Выручка:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text12" Left="245.7" Top="94.5" Width="207.9" Height="18.9" Fill.Color="LightGray" Text="Доход" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text14" Left="245.7" Top="141.75" Width="103.95" Height="18.9" Text="Прибыль:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text15" Left="245.7" Top="160.65" Width="103.95" Height="18.9" Text="Скидок на сумму:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text16" Left="481.95" Top="94.5" Width="207.9" Height="18.9" Fill.Color="LightGray" Text="Наличные" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text17" Left="481.95" Top="122.85" Width="113.4" Height="18.9" Text="Сумма в кассе:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text19" Left="481.95" Top="151.2" Width="207.9" Height="18.9" Fill.Color="LightGray" Text="Движение средств" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text20" Left="481.95" Top="179.55" Width="113.4" Height="18.9" Text="Снято:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text21" Left="481.95" Top="198.45" Width="113.4" Height="18.9" Text="Внесено:" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" Font="Arial, 10pt"/>
+      <TextObject Name="Text23" Left="245.7" Top="189" Width="207.9" Height="18.9" Fill.Color="LightGray" Text="Оплачено" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <SubreportObject Name="Subreport1" Left="245.7" Top="207.9" Width="207.9" Height="18.9" ReportPage="Page2" PrintOnParent="true"/>
+      <TextObject Name="Text24" Left="103.95" Top="122.85" Width="103.95" Height="18.9" Text="[TotalSalesCount]" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text25" Left="103.95" Top="141.75" Width="103.95" Height="18.9" Text="[TotalGoods]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text26" Left="103.95" Top="217.35" Width="103.95" Height="18.9" Text="[TotalReturnCount]" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text27" Left="103.95" Top="236.25" Width="103.95" Height="18.9" Text="[TotalReturnsSum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text28" Left="349.65" Top="122.85" Width="103.95" Height="18.9" Text="[TotalSaleSum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text29" Left="349.65" Top="141.75" Width="103.95" Height="18.9" Text="[IncomeSum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text30" Left="349.65" Top="160.65" Width="103.95" Height="18.9" Text="[DiscountsSum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text31" Left="585.9" Top="122.85" Width="103.95" Height="18.9" Text="[SumCash]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text32" Left="585.9" Top="179.55" Width="103.95" Height="18.9" Text="[MoneyOutcomeSum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text33" Left="585.9" Top="198.45" Width="103.95" Height="18.9" Text="[MoneyIncomeSum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+  <ReportPage Name="Page2" PaperWidth="55" PaperHeight="0" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" Watermark.Font="Arial, 60pt" UnlimitedHeight="true">
+    <DataBand Name="Data1" Width="207.9" Height="18.9" CanGrow="true" CanShrink="true" DataSource="paymentsSum">
+      <TextObject Name="Text22" Width="113.4" Height="18.9" CanGrow="true" Text="[paymentsSum.Name]:" VertAlign="Center" Font="Arial, 10pt">
+        <Formats>
+          <GeneralFormat/>
+          <NumberFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text34" Left="103.95" Width="103.95" Height="18.9" Text="[paymentsSum.Sum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <DataFooterBand Name="DataFooter1" Top="22.9" Width="207.9" Height="18.9" CanShrink="true">
+        <TextObject Name="Text18" Width="113.4" Height="18.9" Border.Lines="Top" Text="ИТОГО" VertAlign="Center" Font="Arial, 10pt, style=Italic"/>
+        <TextObject Name="Text35" Left="103.95" Width="103.95" Height="18.9" Border.Lines="Top" Text="[TotalPayments]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+</Report>

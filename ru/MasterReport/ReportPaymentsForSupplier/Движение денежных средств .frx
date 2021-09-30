@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="08/22/2021 16:56:49" ReportInfo.CreatorVersion="2020.1.28.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+         
+  
+  public class ReportScript
+  {       
+   
+  }
+}
+
+             </ScriptText>
+  <Dictionary>
+    <BusinessObjectDataSource Name="payments" ReferenceName="payments" DataType="System.Collections.Generic.List`1[[Gbs.Helpers.FR.BackEnd.Entities.PaymentItem, Market, Version=6.2.0.1255, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="DateTime" DataType="System.DateTime"/>
+      <Column Name="ParentUid" DataType="System.Guid"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Sum" DataType="System.Decimal"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="items" ReferenceName="items" DataType="System.Collections.Generic.List`1[[Gbs.Helpers.FR.BackEnd.Entities.ListItems.BasketItem, Market, Version=6.2.0.1255, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="DocumentUid" DataType="System.Guid"/>
+      <Column Name="Good" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Good, Market, Version=6.2.0.1255, Culture=neutral, PublicKeyToken=null">
+        <Column Name="Uid" DataType="System.Guid"/>
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Group" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.GoodGroup, Market, Version=6.2.0.1255, Culture=neutral, PublicKeyToken=null">
+          <Column Name="Uid" DataType="System.Guid"/>
+          <Column Name="Name" DataType="System.String"/>
+          <Column Name="ParentGroupUid" DataType="System.Guid"/>
+          <Column Name="GoodsType" DataType="System.String"/>
+          <Column Name="UnitsUid" DataType="System.Guid"/>
+          <Column Name="NeedComment" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsDataParent" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsRequestCount" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="TaxRateNumber" DataType="System.Int32"/>
+          <Column Name="KkmSectionNumber" DataType="System.Int32"/>
+          <Column Name="IsFreePrice" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="DecimalPlace" DataType="System.Int32"/>
+          <Column Name="RuTaxSystem" DataType="System.String"/>
+          <Column Name="RuFfdGoodsType" DataType="System.String"/>
+          <Column Name="RuMarkedProductionType" DataType="System.String"/>
+          <Column Name="TaxRateNumberText" DataType="System.String"/>
+        </Column>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="UnitName" DataType="System.String"/>
+        <Column Name="Unit" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Unit, Market, Version=6.2.0.1255, Culture=neutral, PublicKeyToken=null">
+          <Column Name="FullName" DataType="System.String"/>
+          <Column Name="ShortName" DataType="System.String"/>
+          <Column Name="Code" DataType="System.String"/>
+        </Column>
+        <Column Name="VatValue" DataType="System.Decimal"/>
+        <Column Name="NdsName" DataType="System.String"/>
+        <Column Name="NdsValue" DataType="System.Decimal"/>
+        <Column Name="TotalCount" DataType="System.Decimal"/>
+        <Column Name="Description" DataType="System.String"/>
+        <BusinessObjectDataSource Name="BusinessObjectDataSource1" Alias="Properties" Enabled="false" DataType="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" PropName="Properties"/>
+      </Column>
+      <Column Name="Quantity" DataType="System.Decimal"/>
+      <Column Name="Price" DataType="System.Decimal"/>
+      <Column Name="BuyPrice" DataType="System.Decimal"/>
+      <Column Name="Discount" DataType="System.Decimal"/>
+      <Column Name="Comment" DataType="System.String"/>
+      <Column Name="DiscountSum" DataType="System.Decimal"/>
+      <Column Name="Sum" DataType="System.Decimal"/>
+      <Column Name="SumLessNds" DataType="System.Decimal"/>
+      <Column Name="NdsValue" DataType="System.Decimal"/>
+      <Column Name="NdsSum" DataType="System.Decimal"/>
+      <Column Name="GoodModificationName" DataType="System.String"/>
+      <Column Name="DisplayedName" DataType="System.String"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="CompanyAddress" DataType="System.String"/>
+    <Parameter Name="CompanyName" DataType="System.String"/>
+    <Parameter Name="CompanyPhone" DataType="System.String"/>
+    <Parameter Name="CompanyPublicPointName" DataType="System.String"/>
+    <Parameter Name="CompanyInfo" DataType="System.String"/>
+    <Parameter Name="CompanyInn" DataType="System.String"/>
+    <Parameter Name="CompanyKPP" DataType="System.String"/>
+    <Parameter Name="CompanyOGRN" DataType="System.String"/>
+    <Parameter Name="CompanyBank" DataType="System.String"/>
+    <Parameter Name="CompanyBik" DataType="System.String"/>
+    <Parameter Name="CompanyKs" DataType="System.String"/>
+    <Parameter Name="CompanyRs" DataType="System.String"/>
+    <Parameter Name="DbName" DataType="System.String"/>
+    <Parameter Name="DateStartReport" DataType="System.DateTime"/>
+    <Parameter Name="DateFinishReport" DataType="System.DateTime"/>
+    <Parameter Name="ClientName" DataType="System.String"/>
+    <Parameter Name="ClientPhone" DataType="System.String"/>
+    <Parameter Name="ClientBarcode" DataType="System.String"/>
+    <Parameter Name="ClientAddress" DataType="System.String"/>
+    <Parameter Name="ClientBank" DataType="System.String"/>
+    <Parameter Name="ClientInn" DataType="System.String"/>
+    <Parameter Name="ClientKPP" DataType="System.String"/>
+    <Parameter Name="ClientKs" DataType="System.String"/>
+    <Parameter Name="ClientBik" DataType="System.String"/>
+    <Parameter Name="ClientOGRN" DataType="System.String"/>
+    <Parameter Name="ClientRs" DataType="System.String"/>
+    <Parameter Name="ClientEmail" DataType="System.String"/>
+    <Parameter Name="ClientBonusesSum" DataType="System.Decimal"/>
+    <Parameter Name="ClientCreditSum" DataType="System.Decimal"/>
+    <Parameter Name="ClientComment" DataType="System.String"/>
+    <Total Name="Total" Expression="[payments.Sum]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="Text1" Top="9.45" Width="718.2" Height="28.35" Text="Отчет: движение средств между поставщиком и организацией за период с [DateStartReport] по [DateFinishReport]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Italic">
+        <Formats>
+          <DateFormat/>
+          <DateFormat/>
+        </Formats>
+      </TextObject>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="79.56" Width="718.2" Height="28.35" CanGrow="true" CanShrink="true" DataSource="payments">
+      <TableObject Name="Table2" Left="66.15" Width="604.8" Height="28.35">
+        <TableColumn Name="Column3" Width="179.55"/>
+        <TableColumn Name="Column4" Width="151.2"/>
+        <TableColumn Name="Column6" Width="274.05"/>
+        <TableRow Name="Row2" Height="28.35">
+          <TableCell Name="Cell3" Border.Lines="All" Text="[payments.DateTime]" Format="Date" Format.Format="f" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[payments.Sum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell6" Border.Lines="All" Text="[payments.Name]" VertAlign="Center" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader1" Top="39.78" Width="718.2" Height="37.8">
+        <TableObject Name="Table1" Left="66.15" Top="9.45" Width="604.8" Height="28.35">
+          <TableColumn Name="Column1" Width="179.55"/>
+          <TableColumn Name="Column2" Width="151.2"/>
+          <TableColumn Name="Column5" Width="274.05"/>
+          <TableRow Name="Row1" Height="28.35">
+            <TableCell Name="Cell1" Border.Lines="All" Text="Дата/время" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell2" Border.Lines="All" Text="Сумма платежа" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell5" Border.Lines="All" Text="Подробности" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+      <Sort>
+        <Sort Expression="[payments.DateTime]"/>
+      </Sort>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="109.89" Width="718.2" Height="47.25">
+      <TableObject Name="Table3" Left="66.15" Width="604.8" Height="28.35">
+        <TableColumn Name="Column7" Width="179.55"/>
+        <TableColumn Name="Column8" Width="151.2"/>
+        <TableColumn Name="Column9" Width="274.05"/>
+        <TableRow Name="Row3" Height="28.35">
+          <TableCell Name="Cell7" Border.Lines="All" Text="ИТОГО" Format="Date" Format.Format="f" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="[Total]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+          <TableCell Name="Cell9" Border.Lines="All" VertAlign="Center" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

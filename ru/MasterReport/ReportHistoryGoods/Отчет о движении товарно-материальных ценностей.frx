@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="09/23/2021 21:45:03" ReportInfo.CreatorVersion="2020.3.22.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="items" ReferenceName="items" DataType="null" Enabled="true">
+      <Column Name="Good" DataType="null">
+        <Column Name="Uid" DataType="System.Guid"/>
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Group" DataType="null">
+          <Column Name="Uid" DataType="System.Guid"/>
+          <Column Name="Name" DataType="System.String"/>
+          <Column Name="ParentGroupUid" DataType="System.Guid"/>
+          <Column Name="GoodsType" DataType="System.String"/>
+          <Column Name="UnitsUid" DataType="System.Guid"/>
+          <Column Name="NeedComment" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsDataParent" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsRequestCount" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="TaxRateNumber" DataType="System.Int32"/>
+          <Column Name="KkmSectionNumber" DataType="System.Int32"/>
+          <Column Name="IsFreePrice" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="DecimalPlace" DataType="System.Int32"/>
+          <Column Name="RuTaxSystem" DataType="System.String"/>
+          <Column Name="RuFfdGoodsType" DataType="System.String"/>
+          <Column Name="RuMarkedProductionType" DataType="System.String"/>
+          <Column Name="TaxRateNumberText" DataType="System.String"/>
+        </Column>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="UnitName" DataType="System.String"/>
+        <Column Name="Unit" DataType="null">
+          <Column Name="FullName" DataType="System.String"/>
+          <Column Name="ShortName" DataType="System.String"/>
+          <Column Name="Code" DataType="System.String"/>
+        </Column>
+        <Column Name="VatValue" DataType="System.Decimal"/>
+        <Column Name="NdsName" DataType="System.String"/>
+        <Column Name="NdsValue" DataType="System.Decimal"/>
+        <Column Name="TotalCount" DataType="System.Decimal"/>
+        <Column Name="Description" DataType="System.String"/>
+        <BusinessObjectDataSource Name="BusinessObjectDataSource1" Alias="Properties" Enabled="false" DataType="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" PropName="Properties"/>
+      </Column>
+      <Column Name="CountStart" DataType="System.Decimal"/>
+      <Column Name="CountFinish" DataType="System.Decimal"/>
+      <Column Name="MaxPrice" DataType="System.Decimal"/>
+      <Column Name="Uid" DataType="System.Guid"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="documentItems" ReferenceName="documentItems" DataType="null" Enabled="true">
+      <Column Name="DocumentUid" DataType="System.Guid"/>
+      <Column Name="Good" DataType="null">
+        <Column Name="Uid" DataType="System.Guid"/>
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Group" DataType="null">
+          <Column Name="Uid" DataType="System.Guid"/>
+          <Column Name="Name" DataType="System.String"/>
+          <Column Name="ParentGroupUid" DataType="System.Guid"/>
+          <Column Name="GoodsType" DataType="System.String"/>
+          <Column Name="UnitsUid" DataType="System.Guid"/>
+          <Column Name="NeedComment" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsDataParent" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsRequestCount" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="TaxRateNumber" DataType="System.Int32"/>
+          <Column Name="KkmSectionNumber" DataType="System.Int32"/>
+          <Column Name="IsFreePrice" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="DecimalPlace" DataType="System.Int32"/>
+          <Column Name="RuTaxSystem" DataType="System.String"/>
+          <Column Name="RuFfdGoodsType" DataType="System.String"/>
+          <Column Name="RuMarkedProductionType" DataType="System.String"/>
+          <Column Name="TaxRateNumberText" DataType="System.String"/>
+        </Column>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="UnitName" DataType="System.String"/>
+        <Column Name="Unit" DataType="null">
+          <Column Name="FullName" DataType="System.String"/>
+          <Column Name="ShortName" DataType="System.String"/>
+          <Column Name="Code" DataType="System.String"/>
+        </Column>
+        <Column Name="VatValue" DataType="System.Decimal"/>
+        <Column Name="NdsName" DataType="System.String"/>
+        <Column Name="NdsValue" DataType="System.Decimal"/>
+        <Column Name="TotalCount" DataType="System.Decimal"/>
+        <Column Name="Description" DataType="System.String"/>
+        <BusinessObjectDataSource Name="BusinessObjectDataSource2" Alias="Properties" Enabled="false" DataType="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" PropName="Properties"/>
+      </Column>
+      <Column Name="Quantity" DataType="System.Decimal"/>
+      <Column Name="Price" DataType="System.Decimal"/>
+      <Column Name="BuyPrice" DataType="System.Decimal"/>
+      <Column Name="Discount" DataType="System.Decimal"/>
+      <Column Name="Comment" DataType="System.String"/>
+      <Column Name="DiscountSum" DataType="System.Decimal"/>
+      <Column Name="Sum" DataType="System.Decimal"/>
+      <Column Name="SumLessNds" DataType="System.Decimal"/>
+      <Column Name="NdsValue" DataType="System.Decimal"/>
+      <Column Name="NdsSum" DataType="System.Decimal"/>
+      <Column Name="GoodModificationName" DataType="System.String"/>
+      <Column Name="DisplayedName" DataType="System.String"/>
+      <Column Name="DocumentsType" Enabled="false" DataType="System.Int32"/>
+      <Column Name="GoodUid" DataType="System.Guid"/>
+    </BusinessObjectDataSource>
+    <Relation Name="items_documentItems" ParentDataSource="items" ChildDataSource="documentItems" ParentColumns="Uid" ChildColumns="GoodUid" Enabled="true"/>
+    <Parameter Name="CompanyName" DataType="System.String"/>
+    <Parameter Name="CompanyInfo" DataType="System.String"/>
+    <Parameter Name="UserName" DataType="System.String"/>
+    <Parameter Name="CompanyAddress" DataType="System.String"/>
+    <Parameter Name="CompanyPhone" DataType="System.String"/>
+    <Parameter Name="CompanyInn" DataType="System.String"/>
+    <Parameter Name="CompanyKPP" DataType="System.String"/>
+    <Parameter Name="CompanyOGRN" DataType="System.String"/>
+    <Parameter Name="CompanyBank" DataType="System.String"/>
+    <Parameter Name="CompanyBik" DataType="System.String"/>
+    <Parameter Name="CompanyKs" DataType="System.String"/>
+    <Parameter Name="CompanyRs" DataType="System.String"/>
+    <Parameter Name="DocumentDate" DataType="System.DateTime"/>
+    <Parameter Name="DocumentNumber" DataType="System.String"/>
+    <Parameter Name="DocumentComment" DataType="System.String"/>
+    <Parameter Name="CompanyPublicPointName" DataType="System.String"/>
+    <Parameter Name="DbName" DataType="System.String"/>
+    <Parameter Name="DateStartReport" DataType="System.DateTime"/>
+    <Parameter Name="DateFinishReport" DataType="System.DateTime"/>
+    <Total Name="TotaSaleCountForGood" Expression="[documentItems.Quantity]" Evaluator="Data3" PrintOn="GroupFooter1" EvaluateCondition="[documentItems.DocumentsType]==1||[documentItems.DocumentsType]==4||[documentItems.DocumentsType]==5||[documentItems.DocumentsType]==7"/>
+    <Total Name="TotalBuyCountForGood" Expression="[documentItems.Quantity]" Evaluator="Data3" PrintOn="GroupFooter1" EvaluateCondition="[documentItems.DocumentsType]==2||[documentItems.DocumentsType]==3"/>
+    <Total Name="TotaSaleSumForGood" Expression="[documentItems.Quantity]*[documentItems.items.MaxPrice]" Evaluator="Data3" PrintOn="GroupFooter1" EvaluateCondition="[documentItems.DocumentsType]==1||[documentItems.DocumentsType]==4||[documentItems.DocumentsType]==5||[documentItems.DocumentsType]==7"/>
+    <Total Name="TotaBuySumForGood" Expression="[documentItems.Quantity]*[documentItems.items.MaxPrice]" Evaluator="Data3" PrintOn="GroupFooter1" EvaluateCondition="[documentItems.DocumentsType]==2||[documentItems.DocumentsType]==3"/>
+    <Total Name="TotalSaleCount" Expression="[documentItems.Quantity]" Evaluator="Data3" EvaluateCondition="[documentItems.DocumentsType]==1||[documentItems.DocumentsType]==4||[documentItems.DocumentsType]==5||[documentItems.DocumentsType]==7"/>
+    <Total Name="TotalBuyCount" Expression="[documentItems.Quantity]" Evaluator="Data3" EvaluateCondition="[documentItems.DocumentsType]==2||[documentItems.DocumentsType]==3"/>
+    <Total Name="TotalSaleSum" Expression="[documentItems.Quantity]*[documentItems.items.MaxPrice]" Evaluator="Data3" EvaluateCondition="[documentItems.DocumentsType]==1||[documentItems.DocumentsType]==4||[documentItems.DocumentsType]==5||[documentItems.DocumentsType]==7"/>
+    <Total Name="TotalBuySum" Expression="[documentItems.Quantity]*[documentItems.items.MaxPrice]" Evaluator="Data3" EvaluateCondition="[documentItems.DocumentsType]==2||[documentItems.DocumentsType]==3"/>
+    <Total Name="TotalCountStart" Expression="[items.CountStart]" Evaluator="Data1"/>
+    <Total Name="TotalSumStart" Expression="[items.CountStart]*[items.MaxPrice]" Evaluator="Data1"/>
+    <Total Name="TotalCountFinish" Expression="[items.CountFinish]" Evaluator="Data1"/>
+    <Total Name="TotalSumFinish" Expression="[items.CountFinish]*[items.MaxPrice]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" TopMargin="5" BottomMargin="5" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="412.02" CanGrow="true">
+      <TextObject Name="Text1" Left="774.9" Width="255.15" Height="37.8" Text="Унифицированная форма № МХ-20&#13;&#10;Утверждена постановлением Госкомстата&#13;&#10;России от 09.08.99 № 66" Font="Arial, 7pt"/>
+      <TextObject Name="Text4" Left="9.45" Top="103.95" Width="708.75" Height="28.35" Border.Lines="Bottom" Text="[CompanyName], [IIf(Length([CompanyINN])&gt;0,&quot;ИНН: &quot;,&quot;&quot;)][CompanyINN] [IIf(Length([CompanyOGRN])&gt;0,&quot;ОГРН: &quot;,&quot;&quot;)][CompanyOGRN] [IIf(Length([CompanyKPP])&gt;0,&quot;КПП: &quot;,&quot;&quot;)][CompanyKPP] [IIf(Length([CompanyAddress])&gt;0,&quot;Адрес: &quot;,&quot;&quot;)][CompanyAddress]" VertAlign="Bottom" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text5" Left="9.45" Top="132.3" Width="708.75" Height="9.45" Text="(организация-грузоотправитель, адрес, телефон, факс, банковские реквизиты)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text6" Left="926.1" Top="28.35" Width="103.95" Height="18.9" Border.Lines="All" Text="Код" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Left="926.1" Top="47.25" Width="103.95" Height="18.9" Border.Lines="All" Text="0335020" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Left="926.1" Top="66.15" Width="103.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="926.1" Top="85.05" Width="103.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text11" Left="926.1" Top="113.4" Width="103.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text15" Left="926.1" Top="151.2" Width="103.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text16" Left="926.1" Top="170.1" Width="103.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text19" Left="926.1" Top="189" Width="103.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text20" Left="831.6" Top="47.25" Width="94.5" Height="18.9" Text="Форма по ОКУД" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="850.5" Top="66.15" Width="75.6" Height="18.9" Text="по ОКПО" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text22" Left="9.45" Top="141.75" Width="708.75" Height="18.9" Border.Lines="Bottom" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text23" Left="9.45" Top="160.65" Width="708.75" Height="9.45" Text="(структурное подразделение)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text24" Left="774.9" Top="113.4" Width="151.2" Height="18.9" Text="Вид деятельности по ОКДП" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text37" Left="850.5" Top="151.2" Width="75.6" Height="18.9" Border.Lines="All" Text="камера" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text38" Left="850.5" Top="170.1" Width="75.6" Height="18.9" Border.Lines="All" Text="сеция" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text41" Left="831.6" Top="189" Width="94.5" Height="18.9" Text="Вид операции" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text43" Left="170.1" Top="255.15" Width="179.55" Height="18.9" Text="ОТЧЕТ&#13;&#10;" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text44" Left="359.1" Top="217.35" Width="103.95" Height="37.8" Border.Lines="All" Text="Номер&#13;&#10;документа" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text45" Left="463.05" Top="217.35" Width="103.95" Height="37.8" Border.Lines="All" Text="Дата&#13;&#10;составления" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text46" Left="359.1" Top="255.15" Width="103.95" Height="18.9" Border.Lines="Left, Top, Bottom" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text47" Left="463.05" Top="255.15" Width="103.95" Height="18.9" Border.Lines="All" Text="[FormatDateTime([Date],&quot;dd.MM.yyyy&quot;)]" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text164" Left="926.1" Top="132.3" Width="103.95" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt"/>
+      <TextObject Name="Text165" Left="850.5" Top="132.3" Width="75.6" Height="18.9" Border.Lines="All" Text="склад" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text166" Left="803.25" Top="132.3" Width="47.73" Height="18.9" Text="Номер" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text167" Left="171.36" Top="274.05" Width="518.49" Height="18.9" Text="о движении товарно-материальных ценностей в местах хранения" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text168" Left="585.9" Top="236.25" Width="103.95" Height="18.9" Border.Lines="All" Text="с" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text169" Left="689.85" Top="236.25" Width="103.95" Height="18.9" Border.Lines="All" Text="по" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text170" Left="585.9" Top="255.15" Width="103.95" Height="18.9" Border.Lines="Left, Top, Bottom" Text="[DateStartReport]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text171" Left="689.85" Top="255.15" Width="103.95" Height="18.9" Border.Lines="All" Text="[DateFinishReport]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text172" Left="585.9" Top="217.35" Width="207.9" Height="18.9" Border.Lines="All" Text="Отчетный период" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text173" Left="9.45" Top="311.85" Width="765.45" Height="18.9" Text=" Материально ответственное лицо _____________________________________________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text174" Left="198.45" Top="325.08" Width="415.8" Height="9.45" Text="(фамилия, имя, отчество)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text198" Left="9.45" Top="396.9" Width="47.25" Height="15.12" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text199" Left="56.7" Top="396.9" Width="236.25" Height="15.12" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text200" Left="292.95" Top="396.9" Width="47.25" Height="15.12" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text201" Left="340.2" Top="396.9" Width="56.7" Height="15.12" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text202" Left="396.9" Top="396.9" Width="47.25" Height="15.12" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text203" Left="444.15" Top="396.9" Width="56.7" Height="15.12" Border.Lines="All" Text="6" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text204" Left="500.85" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="7" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text205" Left="56.7" Top="368.55" Width="236.25" Height="28.35" Border.Lines="All" Text="наименование,&#13;&#10;характеристика" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text206" Left="292.95" Top="368.55" Width="47.25" Height="28.35" Border.Lines="All" Text="код" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text207" Left="340.2" Top="368.55" Width="56.7" Height="28.35" Border.Lines="All" Text="наиме- нование" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text208" Left="396.9" Top="368.55" Width="47.25" Height="28.35" Border.Lines="All" Text="код по ОКЕИ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text209" Left="500.85" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="кол-во" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text210" Left="567" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="сумма, руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text211" Left="9.45" Top="340.2" Width="47.25" Height="56.7" Border.Lines="All" Text="Но-&#13;&#10;мер &#13;&#10;по по-&#13;&#10;рядку" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text212" Left="444.15" Top="340.2" Width="56.7" Height="56.7" Border.Lines="All" Text="Учетная цена,&#13;&#10;руб. коп." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text213" Left="56.7" Top="340.2" Width="283.5" Height="28.35" Border.Lines="All" Text="Товарно-материальные ценности" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text214" Left="340.2" Top="340.2" Width="103.95" Height="28.35" Border.Lines="All" Text="Единица&#13;&#10;измерения" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text215" Left="500.85" Top="340.2" Width="132.3" Height="28.35" Border.Lines="All" Text="Остаток на начало периода" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text216" Left="633.15" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="кол-во" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text217" Left="699.3" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="сумма, руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text218" Left="633.15" Top="340.2" Width="132.3" Height="28.35" Border.Lines="All" Text="Приход" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text219" Left="765.45" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="кол-во" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text220" Left="831.6" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="сумма, руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text221" Left="765.45" Top="340.2" Width="132.3" Height="28.35" Border.Lines="All" Text="Расход" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text222" Left="897.75" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="кол-во" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text223" Left="963.9" Top="368.55" Width="66.15" Height="28.35" Border.Lines="All" Text="сумма, руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text224" Left="897.75" Top="340.2" Width="132.3" Height="28.35" Border.Lines="All" Text="Остаток на конец периода" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text225" Left="567" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="8" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text226" Left="633.15" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="9" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text227" Left="699.3" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="10" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text228" Left="765.45" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="11" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text229" Left="831.6" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="12" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text230" Left="897.75" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="13" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text231" Left="963.9" Top="396.9" Width="66.15" Height="15.12" Border.Lines="All" Text="14" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="416.19" Width="1047.06" Height="37.8" CanShrink="true" DataSource="items"/>
+    <GroupHeaderBand Name="GroupHeader1" Top="458.15" Width="1047.06" Height="28.35" CanShrink="true" Condition="[documentItems.Good.Uid]">
+      <DataBand Name="Data3" Top="490.67" Width="1047.06" Height="18.9" CanShrink="true" DataSource="documentItems"/>
+      <GroupFooterBand Name="GroupFooter1" Top="513.74" Width="1047.06" Height="15.12" CanGrow="true" CanShrink="true">
+        <TableObject Name="Table1" Left="9.45" Width="1020.6" Height="15.12" Border.Lines="All" CanBreak="false" RepeatHeaders="false">
+          <TableColumn Name="Column1" Width="47.25"/>
+          <TableColumn Name="Column2" Width="236.25"/>
+          <TableColumn Name="Column3" Width="47.25"/>
+          <TableColumn Name="Column4" Width="56.7"/>
+          <TableColumn Name="Column5" Width="47.25"/>
+          <TableColumn Name="Column12" Width="56.7"/>
+          <TableColumn Name="Column19"/>
+          <TableColumn Name="Column20"/>
+          <TableColumn Name="Column21"/>
+          <TableColumn Name="Column22"/>
+          <TableColumn Name="Column23"/>
+          <TableColumn Name="Column24"/>
+          <TableColumn Name="Column25"/>
+          <TableColumn Name="Column27"/>
+          <TableRow Name="Row1" MaxHeight="75.6" Height="15.12" AutoSize="true">
+            <TableCell Name="Cell1" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell2" Border.Lines="All" Text="[documentItems.items.Good.Name]" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell3" Border.Lines="Left, Right" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell4" Border.Lines="Left" Text="[documentItems.items.Good.UnitName]" Format="Custom" Format.Format="# ##0.###" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell5" Border.Lines="Left" Format="Custom" Format.Format="##0.##" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell12" Border.Lines="All" Text="[documentItems.items.MaxPrice]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell19" Border.Lines="Right" Text="[documentItems.items.CountStart]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell20" Border.Lines="Right" Text="[[documentItems.items.CountStart]*[documentItems.items.MaxPrice]]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell21" Border.Lines="Right" Text="[TotalBuyCountForGood]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell22" Border.Lines="Right" Text="[TotaBuySumForGood]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell23" Border.Lines="Right" Text="[TotaSaleCountForGood]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell24" Border.Lines="Right" Text="[TotaSaleSumForGood]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell25" Border.Lines="All" Text="[documentItems.items.CountFinish]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell27" Border.Lines="Right" Text="[[documentItems.items.CountFinish]*[documentItems.items.MaxPrice]]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          </TableRow>
+        </TableObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="533.02" Width="1047.06" Height="171.99">
+      <TextObject Name="Text94" Left="500.85" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalCountStart]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text101" Left="311.85" Width="189" Height="15.12" Text="Всего по накладной" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text191" Left="567" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalSumStart]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text192" Left="633.15" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalBuyCount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text193" Left="699.3" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalBuySum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text194" Left="765.45" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalSaleCount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text195" Left="831.6" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalSaleSum]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text196" Left="897.75" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalCountFinish]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text197" Left="963.9" Width="66.15" Height="15.12" Border.Lines="All" Text="[TotalSumFinish]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text232" Left="9.45" Top="37.8" Width="765.45" Height="18.9" Text="Приложение ________________________________ документов на  ________________________________ листах" Font="Arial, 8pt"/>
+      <TextObject Name="Text233" Left="75.6" Top="49.14" Width="198.45" Height="9.45" Text="(количество прописью)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text234" Left="359.1" Top="49.14" Width="198.45" Height="9.45" Text="(количество прописью)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text235" Left="9.45" Top="75.6" Width="274.05" Height="18.9" Text=" Материально ответственное(ные) лицо (лица)" Font="Arial, 8pt"/>
+      <TextObject Name="Text236" Left="359.1" Top="75.6" Width="207.9" Height="18.9" Text="________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text237" Left="576.45" Top="75.6" Width="207.9" Height="18.9" Text="________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text238" Left="793.8" Top="75.6" Width="207.9" Height="18.9" Text="________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text239" Left="359.1" Top="86.94" Width="198.45" Height="9.45" Text="(должность)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text240" Left="576.45" Top="86.94" Width="198.45" Height="9.45" Text="(подпись)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text241" Left="793.8" Top="86.94" Width="198.45" Height="9.45" Text="(расшифровка подписи)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text242" Left="359.1" Top="113.4" Width="207.9" Height="18.9" Text="________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text243" Left="576.45" Top="113.4" Width="207.9" Height="18.9" Text="________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text244" Left="793.8" Top="113.4" Width="207.9" Height="18.9" Text="________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text245" Left="359.1" Top="124.74" Width="198.45" Height="9.45" Text="(должность)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text246" Left="576.45" Top="124.74" Width="198.45" Height="9.45" Text="(подпись)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text247" Left="793.8" Top="124.74" Width="198.45" Height="9.45" Text="(расшифровка подписи)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text248" Left="9.45" Top="141.75" Width="274.05" Height="18.9" Text="Отчет проверил и принял бухгалтер" Font="Arial, 8pt"/>
+      <TextObject Name="Text249" Left="359.1" Top="141.75" Width="207.9" Height="18.9" Text="________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text250" Left="576.45" Top="141.75" Width="406.35" Height="18.9" Text="_______________________________________________________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text251" Left="359.1" Top="153.09" Width="198.45" Height="9.45" Text="(подпись)" HorzAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text252" Left="576.45" Top="153.09" Width="396.9" Height="9.45" Text="(расшифровка подписи)" HorzAlign="Center" Font="Arial, 6pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

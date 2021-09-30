@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="03/27/2020 16:34:52" ReportInfo.CreatorVersion="2019.1.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+         
+  
+  public class ReportScript
+  {       
+   
+  }
+}
+
+             </ScriptText>
+  <Dictionary>
+    <BusinessObjectDataSource Name="groups" ReferenceName="groups" DataType="System.Collections.Generic.List`1[[Gbs.Helpers.FR.BackEnd.Entities.Goods.GoodGroup, Market, Version=6.0.0.685, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="Uid" DataType="System.Guid"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="ParentGroupUid" DataType="System.Guid"/>
+      <Column Name="GoodsType" DataType="System.String"/>
+      <Column Name="UnitsUid" DataType="System.Guid"/>
+      <Column Name="NeedComment" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="IsDataParent" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="IsRequestCount" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="TaxRateNumber" DataType="System.Int32"/>
+      <Column Name="KkmSectionNumber" DataType="System.Int32"/>
+      <Column Name="IsFreePrice" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="DecimalPlace" DataType="System.Int32"/>
+      <Column Name="RuTaxSystem" DataType="System.String"/>
+      <Column Name="RuFfdGoodsType" DataType="System.String"/>
+      <Column Name="RuMarkedProductionType" DataType="System.String"/>
+      <Column Name="TaxRateNumberText" DataType="System.String"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="CompanyAddress" DataType="System.String"/>
+    <Parameter Name="CompanyName" DataType="System.String"/>
+    <Parameter Name="CompanyPhone" DataType="System.String"/>
+    <Parameter Name="CompanyPublicPointName" DataType="System.String"/>
+    <Parameter Name="CompanyInfo" DataType="System.String"/>
+    <Parameter Name="CompanyInn" DataType="System.String"/>
+    <Parameter Name="CompanyKPP" DataType="System.String"/>
+    <Parameter Name="CompanyOGRN" DataType="System.String"/>
+    <Parameter Name="CompanyBank" DataType="System.String"/>
+    <Parameter Name="CompanyBik" DataType="System.String"/>
+    <Parameter Name="CompanyKs" DataType="System.String"/>
+    <Parameter Name="CompanyRs" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" Guides="9.45,718.2,689.87,62.06,350.91,441.32,531.73,622.14,699.78,68.07,360.98,455.33,541.58,636.2,689.85,695.72,628.53,269.3,250.49,670.95" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="85.05" CanGrow="true" Guides="75.6,103.95,9.45">
+      <TextObject Name="Text5" Left="16.68" Top="47.25" Width="673.17" Height="28.35" Text="Список категорий от [Date]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="9.45" Top="28.35" Width="680.4" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[CompanyInfo]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="9.45" Top="9.45" Width="680.4" Height="18.9" CanGrow="true" CanShrink="true" Text="[CompanyName]" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="86.84" Width="718.2" Height="37.8" Guides="0,18.9">
+      <TableObject Name="Table2" Left="9.45" Width="765.93" Height="37.8" ManualBuildAutoSpans="false">
+        <TableColumn Name="Column6" Width="56.7"/>
+        <TableColumn Name="Column7" Width="132.3"/>
+        <TableColumn Name="Column19" Width="182.56"/>
+        <TableColumn Name="Column20" Width="104.35"/>
+        <TableColumn Name="Column26" Width="91.57"/>
+        <TableColumn Name="Column29"/>
+        <TableColumn Name="Column33"/>
+        <TableColumn Name="Column31"/>
+        <TableRow Name="Row2" Height="37.8">
+          <TableCell Name="Cell6" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="Тип товара" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell19" Border.Lines="Top, Bottom" Text="Название" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell20" Border.Lines="All" Text="Свободная цена" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell26" Border.Lines="Right, Top, Bottom" Text="Запрос &#13;&#10;кол-ва" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="СНО" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="НДС" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell31" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="126.44" Width="718.2" Height="18.9" CanGrow="true" CanShrink="true" Guides="0,18.9,0" DataSource="groups">
+      <TableObject Name="Table1" Left="9.45" Width="765.92" Height="18.9" CanBreak="false" RepeatHeaders="false">
+        <TableColumn Name="Column1" Width="56.7"/>
+        <TableColumn Name="Column2" Width="132.3"/>
+        <TableColumn Name="Column21" Width="182.57"/>
+        <TableColumn Name="Column22" Width="104.33"/>
+        <TableColumn Name="Column28" Width="91.57"/>
+        <TableColumn Name="Column30"/>
+        <TableColumn Name="Column34"/>
+        <TableColumn Name="Column32"/>
+        <TableRow Name="Row1" MaxHeight="75.6" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Text="[Row#]" HorzAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[groups.GoodsType]" Format="Custom" Format.Format="dd.MM.yyyy HH:mm" Font="Arial, 10pt"/>
+          <TableCell Name="Cell21" Border.Lines="Top, Bottom" Text="[groups.Name]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" Font="Arial, 10pt"/>
+          <TableCell Name="Cell22" Border.Lines="All" Text="[IIf([groups.IsFreePrice],&quot;Да&quot;,&quot;Нет&quot;)]" Format="Custom" Format.Format="0.###" HorzAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell28" Border.Lines="Right, Top, Bottom" Text="[IIf([groups.IsRequestCount],&quot;Да&quot;,&quot;Нет&quot;)]" Format="Number" Format.UseLocale="true" HorzAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="[groups.RuTaxSystem]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="[groups.TaxRateNumberText]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell32" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="147.13" Width="718.2" Height="47.25" Guides="28.35,47.25,0,18.9,85.05,103.95"/>
+  </ReportPage>
+</Report>
