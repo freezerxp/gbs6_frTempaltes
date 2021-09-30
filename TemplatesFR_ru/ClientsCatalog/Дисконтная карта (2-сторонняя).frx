@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="11/09/2019 19:04:24" ReportInfo.CreatorVersion="2019.1.12.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="clients" ReferenceName="clients" DataType="System.Collections.Generic.List`1[[Gbs.Helpers.FR.BackEnd.Entities.Clients.Client, Market, Version=6.0.0.554, Culture=neutral, PublicKeyToken=null]]" PropName="clients1" Enabled="true">
+      <Column Name="Group" DataType="Gbs.Helpers.FR.BackEnd.Entities.Clients.ClientGroups, Market, Version=6.0.0.554, Culture=neutral, PublicKeyToken=null">
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Discount" DataType="System.Decimal"/>
+        <Column Name="MaxSumCredit" DataType="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"/>
+      </Column>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Birthday" DataType="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"/>
+      <Column Name="Comment" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="Email" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="SalesSum" DataType="System.Decimal"/>
+      <Column Name="CreditSum" DataType="System.Decimal"/>
+      <Column Name="Bonuses" DataType="System.Decimal"/>
+      <Column Name="Barcode" DataType="System.String"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="CompanyName" DataType="System.String"/>
+    <Parameter Name="CompanyInfo" DataType="System.String"/>
+    <Parameter Name="ext1Name" DataType="System.String"/>
+    <Parameter Name="ext2Name" DataType="System.String"/>
+    <Parameter Name="ext3Name" DataType="System.String"/>
+    <Parameter Name="ext4Name" DataType="System.String"/>
+    <Parameter Name="ext5Name" DataType="System.String"/>
+    <Parameter Name="CompanyAddress" DataType="System.String"/>
+    <Parameter Name="CompanyPhone" DataType="System.String"/>
+    <Parameter Name="CompanyPublicPointName" DataType="System.String"/>
+    <Parameter Name="CompanyInn" DataType="System.String"/>
+    <Parameter Name="CompanyKPP" DataType="System.String"/>
+    <Parameter Name="CompanyOGRN" DataType="System.String"/>
+    <Parameter Name="CompanyBank" DataType="System.String"/>
+    <Parameter Name="CompanyBik" DataType="System.String"/>
+    <Parameter Name="CompanyKs" DataType="System.String"/>
+    <Parameter Name="CompanyRs" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" Guides="9.7,129,0,143.47,143,9.88,132.73" Watermark.Font="Arial, 60pt">
+    <DataBand Name="Data1" Width="325.08" Height="378" Border.Lines="All" Border.Style="Dot" Border.Width="0.25" Guides="42.26,61.16,0.25,41.77,70.39,89.29,60.95,70.4" DataSource="clients" Columns.Count="3" Columns.Width="325.08" KeepTogether="true">
+      <BarcodeObject Name="Barcode1" Left="66.15" Top="264.6" Width="212.15" Height="28.35" Angle="180" AutoSize="false" DataColumn="clients.Barcode" ShowText="false" AllowExpressions="true" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <TextObject Name="Text1" Left="66.15" Top="245.7" Width="217.35" Height="18.9" Text="[clients.Barcode]" HorzAlign="Center" Angle="180" Font="Arial, 10pt"/>
+      <TextObject Name="Text2" Left="9.45" Top="189" Width="302.4" Height="28.35" Border.Lines="Top" Border.TopLine.Color="DimGray" Border.TopLine.Style="DashDotDot" Border.TopLine.Width="0.5" Text="[CompanyName], [CompanyAddress]&#13;&#10;" Padding="2, 0, 2, 2" HorzAlign="Center" VertAlign="Bottom" Angle="180" Font="Arial, 6pt"/>
+      <TextObject Name="Text3" Top="18.9" Width="321.3" Height="66.15" Text="Карта постоянного покупателя" HorzAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <TextObject Name="Text4" Left="9.45" Top="340.2" Width="311.85" Height="18.9" Text="Владелец: [clients.Name]" Angle="180" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="9.45" Top="94.5" Width="302.4" Height="37.8" Text="[CompanyName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="9.45" Top="132.3" Width="302.4" Height="37.8" Text="Адрес:[CompanyAddress]&#13;&#10;Телефон: [CompanyPhone]" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

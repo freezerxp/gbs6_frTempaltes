@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="01/16/2021 16:09:28" ReportInfo.CreatorVersion="2020.3.22.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="goods" ReferenceName="goods" DataType="null" PropName="goods1" Enabled="true">
+      <Column Name="Good" DataType="null">
+        <Column Name="Uid" DataType="System.Guid"/>
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Group" DataType="null">
+          <Column Name="Uid" DataType="System.Guid"/>
+          <Column Name="Name" DataType="System.String"/>
+        </Column>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="UnitName" DataType="System.String"/>
+        <Column Name="VatValue" DataType="System.Decimal"/>
+        <BusinessObjectDataSource Name="BusinessObjectDataSource1" Alias="Properties" Enabled="false" DataType="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" PropName="Properties"/>
+      </Column>
+      <Column Name="Quantity" DataType="System.Decimal"/>
+      <Column Name="Price" DataType="System.Decimal"/>
+      <Column Name="BuyPrice" DataType="System.Decimal"/>
+      <Column Name="Discount" DataType="System.Decimal"/>
+      <Column Name="Comment" DataType="System.String"/>
+      <Column Name="DiscountSum" DataType="System.Decimal"/>
+      <Column Name="Sum" DataType="System.Decimal"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="CompanyName" DataType="System.String"/>
+    <Parameter Name="CompanyInfo" DataType="System.String"/>
+    <Parameter Name="UserName" DataType="System.String"/>
+    <Parameter Name="CompanyAddress" DataType="System.String"/>
+    <Parameter Name="CompanyPhone" DataType="System.String"/>
+    <Parameter Name="CompanyInn" DataType="System.String"/>
+    <Parameter Name="CompanyKPP" DataType="System.String"/>
+    <Parameter Name="CompanyOGRN" DataType="System.String"/>
+    <Parameter Name="CompanyBank" DataType="System.String"/>
+    <Parameter Name="CompanyBik" DataType="System.String"/>
+    <Parameter Name="CompanyKs" DataType="System.String"/>
+    <Parameter Name="CompanyRs" DataType="System.String"/>
+    <Parameter Name="DocumentDate" DataType="System.DateTime"/>
+    <Parameter Name="DocumentNumber" DataType="System.String"/>
+    <Parameter Name="DocumentComment" DataType="System.String"/>
+    <Parameter Name="CompanyPublicPointName" DataType="System.String"/>
+    <Total Name="Total" Expression="[goods.Quantity]*[goods.Price]*(100-[goods.Discount])/100" Evaluator="Data1"/>
+    <Total Name="totalCount" Expression="[goods.Quantity]" Evaluator="Data1"/>
+    <Total Name="TotalSumWithNDSforPage" Expression="([goods.Price]*(100-[goods.Discount])/100)*[goods.Quantity]" Evaluator="Data1"/>
+    <Total Name="ndsSumforPage" Expression="([goods.Price]*(100-[goods.Discount])/100)*(18)/100*[goods.Quantity]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Guides="9.45,718.2,689.87,62.06,350.91,441.32,531.73,622.14,699.78,68.07,360.98,455.33,541.58,636.2,689.85,695.72,628.53,269.3,250.49,670.95" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="302.4" CanGrow="true" CanShrink="true" Guides="75.6,103.95,9.45">
+      <TextObject Name="Text5" Left="9.45" Top="198.45" Width="680.4" Height="28.35" Border.Lines="Bottom" Border.Width="2" Text="Счет на оплату №[DocumentNumber] от [FormatDateTime([DocumentDate],&quot;dd.MM.yyyy&quot;)]" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="104.83" Top="236.25" Width="585.02" Height="28.35" CanGrow="true" Text="[CompanyName],  [IIf(Length([CompanyINN])&gt;0,&quot;ИНН: &quot;,&quot;&quot;)][CompanyINN] [IIf(Length([CompanyOGRN])&gt;0,&quot;ОГРН: &quot;,&quot;&quot;)][CompanyOGRN] [IIf(Length([CompanyKPP])&gt;0,&quot;КПП: &quot;,&quot;&quot;)][CompanyKPP] [IIf(Length([CompanyBik])&gt;0,&quot;Бик: &quot;,&quot;&quot;)][CompanyBik] [IIf(Length([CompanyBank])&gt;0,&quot;Банк: &quot;,&quot;&quot;)][CompanyBank] [IIf(Length([CompanyRs])&gt;0,&quot;Расчётный счёт: &quot;,&quot;&quot;)][CompanyRs] [IIf(Length([CompanyKs])&gt;0,&quot;Кор. счёт: &quot;,&quot;&quot;)][CompanyKs] [IIf(Length([CompanyPhone])&gt;0,&quot;Телефон: &quot;,&quot;&quot;)][CompanyPhone]&#13;&#10;[IIf(Length([CompanyAddress])&gt;0,&quot;Адрес: &quot;,&quot;&quot;)][CompanyAddress]" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Left="9.45" Top="236.25" Width="94.5" Height="28.35" Text="Поставщик:" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Top="47.25" Width="359.1" Height="66.15" Border.Lines="Left, Right, Top" Text="[CompanyBank]" Font="Arial, 9pt"/>
+      <TextObject Name="Text10" Top="113.4" Width="359.1" Height="9.45" Border.Lines="Left, Right, Bottom" Text="Банк получателя" Font="Arial, 6pt"/>
+      <TextObject Name="Text11" Top="141.75" Width="359.1" Height="47.25" Border.Lines="Left, Right, Top" Text="[CompanyName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text12" Top="122.85" Width="189" Height="18.9" Border.Lines="All" Text="ИНН [CompanyINN]" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text13" Left="189" Top="122.85" Width="170.1" Height="18.9" Border.Lines="All" Text="КПП [CompanyKPP]" Font="Arial, 9pt"/>
+      <TextObject Name="Text14" Left="359.1" Top="47.25" Width="66.15" Height="18.9" Border.Lines="All" Text="БИК" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text15" Left="359.1" Top="66.15" Width="66.15" Height="56.7" Border.Lines="All" Text="Сч. №" Font="Arial, 10pt"/>
+      <TextObject Name="Text16" Left="359.1" Top="122.85" Width="66.15" Height="75.6" Border.Lines="All" Text="Сч. №" Font="Arial, 10pt"/>
+      <TextObject Name="Text17" Left="425.25" Top="47.25" Width="264.6" Height="18.9" Border.Lines="Left, Right, Top" Text="[CompanyBik]" Font="Arial, 9pt"/>
+      <TextObject Name="Text18" Left="425.25" Top="122.85" Width="264.6" Height="75.6" Border.Lines="All" Text="[CompanyKs]" Font="Arial, 9pt"/>
+      <TextObject Name="Text1" Top="189" Width="359.1" Height="9.45" Border.Lines="Left, Right, Bottom" Text="Получатель" Font="Arial, 6pt"/>
+      <TextObject Name="Text19" Left="425.25" Top="66.15" Width="264.6" Height="56.7" Border.Lines="Left, Right, Top" Text="[CompanyRs]" Font="Arial, 9pt"/>
+      <TextObject Name="Text20" Left="9.45" Top="264.6" Width="94.5" Height="28.35" Text="Покупатель:" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text22" Left="103.95" Top="264.6" Width="585.9" Height="28.35" Text="[ClientName] [IIf(Length([ClientInn])&gt;0,&quot;ИНН: &quot;,&quot;&quot;)][ClientInn] [IIf(Length([ClientKpp])&gt;0,&quot;КПП: &quot;,&quot;&quot;)][ClientKpp] [IIf(Length([ClientBik])&gt;0,&quot;БИК: &quot;,&quot;&quot;)][ClientBik] [IIf(Length([ClientBank])&gt;0,&quot;Банк: &quot;,&quot;&quot;)][ClientBank] [IIf(Length([ClientRs])&gt;0,&quot;Расчётный счёт: &quot;,&quot;&quot;)][ClientRs] [IIf(Length([ClientKs])&gt;0,&quot;Кор. счёт: &quot;,&quot;&quot;)][ClientKs] [IIf(Length([ClientAddress])&gt;0,&quot;Адрес: &quot;,&quot;&quot;)][ClientAddress]&#13;&#10;" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="305.36" Width="718.2" Height="18.9" Guides="0,18.9">
+      <TableObject Name="Table2" Left="9.45" Width="680.42" Height="18.9" ManualBuildAutoSpans="false">
+        <TableColumn Name="Column6" Width="52.61"/>
+        <TableColumn Name="Column7" Width="336.1"/>
+        <TableColumn Name="Column8" Width="62.06"/>
+        <TableColumn Name="Column9" Width="63.14"/>
+        <TableColumn Name="Column10" Width="79.88"/>
+        <TableColumn Name="Column11" Width="86.63"/>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" Border.Lines="All" Text="№ п\п" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="Товары (работы, услуги)" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="Кол-во" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="Ед. изм." HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="Цена" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell11" Border.Lines="All" Text="Сумма" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="327.23" Width="718.2" Height="18.9" CanGrow="true" CanShrink="true" Guides="0,18.9" DataSource="goods">
+      <TableObject Name="Table1" Left="9.45" Width="680.42" Height="18.9" CanBreak="false" RepeatHeaders="false">
+        <TableColumn Name="Column1" Width="52.65"/>
+        <TableColumn Name="Column2" Width="335.9"/>
+        <TableColumn Name="Column3" Width="62.22"/>
+        <TableColumn Name="Column4" Width="63.09"/>
+        <TableColumn Name="Column5" Width="80.03"/>
+        <TableColumn Name="Column12" Width="86.53"/>
+        <TableRow Name="Row1" MaxHeight="75.6" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Text="[Row#]" HorzAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[goods.Good.Name]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="[goods.Quantity]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[goods.Good.UnitName]" Format="Custom" Format.Format="# ##0.###" HorzAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="[[goods.Price]*(100-[goods.Discount])/100]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TableCell Name="Cell12" Border.Lines="All" Text="[goods.Sum]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="349.09" Width="718.2" Height="179.55" Guides="28.35,47.25,0,18.9,85.05,103.95">
+      <TextObject Name="Text2" Left="9.45" Top="103.95" Width="680.4" Height="31.11" Border.Lines="Bottom" Border.Width="2" Text="[ToWordsRu([TotalSumWithNDSforPage])] В том числе НДС: [ToWordsRu([ndsSumforPage])]" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="9.45" Top="151.2" Width="340.2" Height="18.9" Text="Руководитель__________________" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="368.55" Top="151.2" Width="321.3" Height="18.9" Text="Бухгалтер: _______________________" Font="Arial, 10pt"/>
+      <TableObject Name="Table3" Left="464.54" Top="38.46" Width="225.13" Height="18.9">
+        <TableColumn Name="Column13" Width="143.56"/>
+        <TableColumn Name="Column18" Width="81.57"/>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell13" Text="Итого с учётом НДС:" HorzAlign="Right" Font="Arial, 9pt, style=Bold"/>
+          <TableCell Name="Cell1002" Text="[TotalSumWithNDSforPage]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text21" Left="9.45" Top="85.05" Width="680.4" Height="18.9" Text="Всего наименований [totalCount] на сумму [Total] руб." Font="Arial, 10pt">
+        <Formats>
+          <GeneralFormat/>
+          <NumberFormat UseLocale="false"/>
+        </Formats>
+      </TextObject>
+      <TableObject Name="Table4" Left="558.93" Width="130.63" Height="18.9">
+        <TableColumn Name="Column21" Width="49.06"/>
+        <TableColumn Name="Column22" Width="81.57"/>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell1005" Text="Итого:" HorzAlign="Right" Font="Arial, 9pt, style=Bold"/>
+          <TableCell Name="Cell1006" Text="[Total]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table5" Left="464.54" Top="19.11" Width="225.09" Height="18.9">
+        <TableColumn Name="Column23" Width="143.54"/>
+        <TableColumn Name="Column24" Width="81.55"/>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell1007" Text="В том числе НДС:" HorzAlign="Right" Font="Arial, 9pt, style=Bold"/>
+          <TableCell Name="Cell1008" Text="[ndsSumforPage]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="09/17/2021 12:35:20" ReportInfo.CreatorVersion="2020.1.28.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="goods" ReferenceName="goods" DataType="System.Collections.Generic.List`1[[Gbs.Helpers.FR.BackEnd.Entities.ListItems.BasketItem, Market, Version=6.2.0.1260, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="DocumentUid" DataType="System.Guid"/>
+      <Column Name="Good" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Good, Market, Version=6.2.0.1260, Culture=neutral, PublicKeyToken=null">
+        <Column Name="Uid" DataType="System.Guid"/>
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Group" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.GoodGroup, Market, Version=6.2.0.1260, Culture=neutral, PublicKeyToken=null">
+          <Column Name="Uid" DataType="System.Guid"/>
+          <Column Name="Name" DataType="System.String"/>
+          <Column Name="ParentGroupUid" DataType="System.Guid"/>
+          <Column Name="GoodsType" DataType="System.String"/>
+          <Column Name="UnitsUid" DataType="System.Guid"/>
+          <Column Name="NeedComment" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsDataParent" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="IsRequestCount" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="TaxRateNumber" DataType="System.Int32"/>
+          <Column Name="KkmSectionNumber" DataType="System.Int32"/>
+          <Column Name="IsFreePrice" DataType="System.Boolean" BindableControl="CheckBox"/>
+          <Column Name="DecimalPlace" DataType="System.Int32"/>
+          <Column Name="RuTaxSystem" DataType="System.String"/>
+          <Column Name="RuFfdGoodsType" DataType="System.String"/>
+          <Column Name="RuMarkedProductionType" DataType="System.String"/>
+          <Column Name="TaxRateNumberText" DataType="System.String"/>
+        </Column>
+        <Column Name="Barcode" DataType="System.String"/>
+        <Column Name="UnitName" DataType="System.String"/>
+        <Column Name="Unit" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Unit, Market, Version=6.2.0.1260, Culture=neutral, PublicKeyToken=null">
+          <Column Name="FullName" DataType="System.String"/>
+          <Column Name="ShortName" DataType="System.String"/>
+          <Column Name="Code" DataType="System.String"/>
+        </Column>
+        <Column Name="VatValue" DataType="System.Decimal"/>
+        <Column Name="NdsName" DataType="System.String"/>
+        <Column Name="NdsValue" DataType="System.Decimal"/>
+        <Column Name="TotalCount" DataType="System.Decimal"/>
+        <Column Name="Description" DataType="System.String"/>
+      </Column>
+      <Column Name="Quantity" DataType="System.Decimal"/>
+      <Column Name="Price" DataType="System.Decimal"/>
+      <Column Name="BuyPrice" DataType="System.Decimal"/>
+      <Column Name="Discount" DataType="System.Decimal"/>
+      <Column Name="Comment" DataType="System.String"/>
+      <Column Name="DiscountSum" DataType="System.Decimal"/>
+      <Column Name="Sum" DataType="System.Decimal"/>
+      <Column Name="SumLessNds" DataType="System.Decimal"/>
+      <Column Name="NdsValue" DataType="System.Decimal"/>
+      <Column Name="NdsSum" DataType="System.Decimal"/>
+      <Column Name="GoodModificationName" DataType="System.String"/>
+      <Column Name="DisplayedName" DataType="System.String"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="CompanyAddress" DataType="System.String"/>
+    <Parameter Name="CompanyName" DataType="System.String"/>
+    <Parameter Name="CompanyPhone" DataType="System.String"/>
+    <Parameter Name="CompanyPublicPointName" DataType="System.String"/>
+    <Parameter Name="CompanyInfo" DataType="System.String"/>
+    <Parameter Name="CompanyInn" DataType="System.String"/>
+    <Parameter Name="CompanyKPP" DataType="System.String"/>
+    <Parameter Name="CompanyOGRN" DataType="System.String"/>
+    <Parameter Name="CompanyBank" DataType="System.String"/>
+    <Parameter Name="CompanyBik" DataType="System.String"/>
+    <Parameter Name="CompanyKs" DataType="System.String"/>
+    <Parameter Name="CompanyRs" DataType="System.String"/>
+    <Parameter Name="DbName" DataType="System.String"/>
+    <Parameter Name="DocumentDate" DataType="System.DateTime"/>
+    <Parameter Name="DocumentNumber" DataType="System.String"/>
+    <Parameter Name="DocumentComment" DataType="System.String"/>
+    <Parameter Name="ClientName" DataType="System.String"/>
+    <Parameter Name="ClientPhone" DataType="System.String"/>
+    <Parameter Name="ClientBarcode" DataType="System.String"/>
+    <Parameter Name="ClientAddress" DataType="System.String"/>
+    <Parameter Name="ClientBank" DataType="System.String"/>
+    <Parameter Name="ClientInn" DataType="System.String"/>
+    <Parameter Name="ClientKPP" DataType="System.String"/>
+    <Parameter Name="ClientKs" DataType="System.String"/>
+    <Parameter Name="ClientBik" DataType="System.String"/>
+    <Parameter Name="ClientOGRN" DataType="System.String"/>
+    <Parameter Name="ClientRs" DataType="System.String"/>
+    <Parameter Name="ClientEmail" DataType="System.String"/>
+    <Parameter Name="ClientBonusesSum" DataType="System.Decimal"/>
+    <Parameter Name="ClientCreditSum" DataType="System.Decimal"/>
+    <Parameter Name="ClientComment" DataType="System.String"/>
+    <Parameter Name="UserName" DataType="System.String"/>
+    <Parameter Name="UserPhone" DataType="System.String"/>
+    <Parameter Name="TotalPaymentSum" DataType="System.Decimal"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="80" PaperHeight="0" LeftMargin="0" TopMargin="5" RightMargin="0" BottomMargin="5" Guides="0,279.72,37.8,170.1,274.05" Watermark.Font="Arial, 60pt" UnlimitedHeight="true">
+    <ReportTitleBand Name="ReportTitle1" Width="302.4" Height="56.7" CanGrow="true" CanShrink="true" Guides="28.35,56.7,9.45">
+      <TextObject Name="Text5" Top="9.45" Width="279.72" Height="47.25" CanGrow="true" GrowToBottom="true" Text="Счет № [DocumentNumber]&#13;&#10;от [FormatDateTime([DocumentDate],&quot;dd.MM.yyyy HH:mm&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="59.95" Width="302.4" Height="56.7" CanGrow="true" CanShrink="true" Guides="0,56.7,18.9,37.8" DataSource="goods">
+      <TableObject Name="Table1" Width="279.72" Height="37.8" Border.Lines="Bottom" Border.Style="Dot" CanBreak="false" RepeatHeaders="false">
+        <TableColumn Name="Column1" Width="279.72"/>
+        <TableRow Name="Row1" MaxHeight="75.6" AutoSize="true">
+          <TableCell Name="Cell1" Text="[Row#].[goods.DisplayedName]" Font="Arial, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell13" Text=" х [goods.Quantity]" HorzAlign="Right" Font="Arial, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="119.9" Width="302.4" Height="37.8" CanGrow="true" CanShrink="true" Guides="189,207.9,274.05,302.4,47.25,66.15,9.45,28.35,151.2,170.1,85.05,103.95,122.85,141.75,217.35,255.15"/>
+  </ReportPage>
+</Report>
