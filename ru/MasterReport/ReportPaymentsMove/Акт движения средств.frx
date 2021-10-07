@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="10/05/2021 23:07:56" ReportInfo.CreatorVersion="2020.1.28.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="10/07/2021 17:22:05" ReportInfo.CreatorVersion="2020.3.22.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,23 +26,23 @@ namespace FastReport
 
              </ScriptText>
   <Dictionary>
-    <BusinessObjectDataSource Name="payments" ReferenceName="payments" DataType="System.Linq.Enumerable+WhereSelectListIterator`2[[Gbs.Core.Entities.Payments+Payment, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null],[Gbs.Helpers.FR.BackEnd.Entities.Payment, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null]], System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Enabled="true">
+    <BusinessObjectDataSource Name="payments" ReferenceName="payments" DataType="null" Enabled="true">
       <Column Name="SumIn" DataType="System.Decimal"/>
       <Column Name="SumOut" DataType="System.Decimal"/>
-      <Column Name="Type" DataType="Gbs.Core.Entities.GlobalDictionaries+PaymentTypes, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null"/>
+      <Column Name="Type" DataType="null"/>
       <Column Name="ParentUid" DataType="System.Guid"/>
       <Column Name="Date" DataType="System.DateTime"/>
-      <Column Name="AccountOut" DataType="Gbs.Helpers.FR.BackEnd.Entities.PaymentsAccount, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null">
+      <Column Name="AccountOut" DataType="null">
         <Column Name="Uid" DataType="System.Guid"/>
         <Column Name="Name" DataType="System.String"/>
       </Column>
-      <Column Name="AccountIn" DataType="Gbs.Helpers.FR.BackEnd.Entities.PaymentsAccount, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null">
+      <Column Name="AccountIn" DataType="null">
         <Column Name="Uid" DataType="System.Guid"/>
         <Column Name="Name" DataType="System.String"/>
       </Column>
       <Column Name="Comment" DataType="System.String"/>
-      <Column Name="Client" DataType="Gbs.Helpers.FR.BackEnd.Entities.Clients.Client, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null">
-        <Column Name="Group" DataType="Gbs.Helpers.FR.BackEnd.Entities.Clients.ClientGroups, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null">
+      <Column Name="Client" DataType="null">
+        <Column Name="Group" DataType="null">
           <Column Name="Name" DataType="System.String"/>
           <Column Name="Discount" DataType="System.Decimal"/>
           <Column Name="MaxSumCredit" DataType="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"/>
@@ -58,16 +58,16 @@ namespace FastReport
         <Column Name="CreditSum" DataType="System.Decimal"/>
         <Column Name="Bonuses" DataType="System.Decimal"/>
       </Column>
-      <Column Name="Method" DataType="Gbs.Helpers.FR.BackEnd.Entities.PaymentMethod, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null">
+      <Column Name="Method" DataType="null">
         <Column Name="Uid" DataType="System.Guid"/>
         <Column Name="Name" DataType="System.String"/>
       </Column>
-      <Column Name="User" DataType="Gbs.Helpers.FR.BackEnd.Entities.User, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null">
+      <Column Name="User" DataType="null">
         <Column Name="Uid" DataType="System.Guid"/>
         <Column Name="Alias" DataType="System.String"/>
         <Column Name="ClientName" DataType="System.String"/>
       </Column>
-      <Column Name="Section" DataType="Gbs.Helpers.FR.BackEnd.Entities.Section, Market, Version=6.2.0.1303, Culture=neutral, PublicKeyToken=null">
+      <Column Name="Section" DataType="null">
         <Column Name="Uid" DataType="System.Guid"/>
         <Column Name="Name" DataType="System.String"/>
       </Column>
@@ -111,7 +111,7 @@ namespace FastReport
           <TableCell Name="Cell6" Border.Lines="All" Text="Контакт" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
         </TableRow>
       </TableObject>
-      <TextObject Name="Text1" Left="37.8" Top="37.8" Width="992.25" Height="18.9" Text="Сумма на счете/счетах на начало период: [SumStart] ([ToWordsRu([SumStart])])" VertAlign="Center" Font="Arial, 10pt">
+      <TextObject Name="Text1" Left="37.8" Top="37.8" Width="992.25" Height="18.9" Text="Сумма на начало периода: [SumStart] ([ToWordsRu([SumStart])])" VertAlign="Center" Font="Arial, 10pt">
         <Formats>
           <NumberFormat/>
           <GeneralFormat/>
@@ -124,7 +124,7 @@ namespace FastReport
         </Formats>
       </TextObject>
     </ReportTitleBand>
-    <DataBand Name="Data3" Top="96.13" Width="1047.06" Height="18.9" CanGrow="true" CanShrink="true" DataSource="payments">
+    <DataBand Name="Data3" Top="96.31" Width="1047.06" Height="18.9" CanGrow="true" CanShrink="true" DataSource="payments">
       <TableObject Name="Table2" Width="1039.5" Height="18.9">
         <TableColumn Name="Column7" Width="160.65"/>
         <TableColumn Name="Column8" Width="103.95"/>
@@ -133,16 +133,16 @@ namespace FastReport
         <TableColumn Name="Column11" Width="160.65"/>
         <TableColumn Name="Column12" Width="198.45"/>
         <TableRow Name="Row2" AutoSize="true">
-          <TableCell Name="Cell7" Border.Lines="All" Text="[payments.Date]" Format="Date" Format.Format="f" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
-          <TableCell Name="Cell8" Border.Lines="All" Text="[[payments.SumIn]-[payments.SumOut]]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="[payments.Date]" Format="Custom" Format.Format="G" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="[IIf([payments.SumIn]-[payments.SumOut]&gt;0,&quot;+&quot;,&quot;&quot;)][[payments.SumIn]-[payments.SumOut]]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
           <TableCell Name="Cell9" Border.Lines="All" Text="[IIf([payments.SumIn]-[payments.SumOut]&gt;0,[payments.AccountIn.Name],[payments.AccountOut.Name])]" VertAlign="Center" Font="Arial, 10pt"/>
           <TableCell Name="Cell10" Border.Lines="All" Text="[payments.GroupInfo]" VertAlign="Center" Font="Arial, 10pt"/>
           <TableCell Name="Cell11" Border.Lines="All" Text="[payments.Comment]" VertAlign="Center" Font="Arial, 10pt"/>
           <TableCell Name="Cell12" Border.Lines="All" Text="[payments.Client.Name]" VertAlign="Center" Font="Arial, 10pt"/>
         </TableRow>
       </TableObject>
-      <DataFooterBand Name="DataFooter2" Top="116.65" Width="1047.06" Height="94.5">
-        <TextObject Name="Text3" Left="37.8" Top="37.8" Width="992.25" Height="18.9" Text="Сумма на счете/счетах на конец периода: [SumFinish] ([ToWordsRu([SumFinish])])" VertAlign="Center" Font="Arial, 10pt">
+      <DataFooterBand Name="DataFooter2" Top="117.02" Width="1047.06" Height="94.5">
+        <TextObject Name="Text3" Left="37.8" Top="37.8" Width="992.25" Height="18.9" Text="Сумма на конец периода: [SumFinish] ([ToWordsRu([SumFinish])])" VertAlign="Center" Font="Arial, 10pt">
           <Formats>
             <NumberFormat/>
             <GeneralFormat/>
