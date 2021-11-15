@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="11/09/2021 18:55:37" ReportInfo.CreatorVersion="2020.1.28.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="11/15/2021 22:32:05" ReportInfo.CreatorVersion="2020.1.28.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,15 +24,15 @@ namespace FastReport
 }
 </ScriptText>
   <Dictionary>
-    <BusinessObjectDataSource Name="goods" ReferenceName="goods" DataType="System.Collections.Generic.List`1[[Gbs.Helpers.FR.BackEnd.Entities.ListItems.BasketItem, Market, Version=6.2.0.1337, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+    <BusinessObjectDataSource Name="goods" ReferenceName="goods" DataType="System.Collections.Generic.List`1[[Gbs.Helpers.FR.BackEnd.Entities.ListItems.BasketItem, Market, Version=6.2.0.1340, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
       <Column Name="DocumentsType" DataType="System.Int32"/>
       <Column Name="DocumentUid" DataType="System.Guid"/>
       <Column Name="GoodUid" DataType="System.Guid"/>
-      <Column Name="Good" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Good, Market, Version=6.2.0.1337, Culture=neutral, PublicKeyToken=null">
+      <Column Name="Good" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Good, Market, Version=6.2.0.1340, Culture=neutral, PublicKeyToken=null">
         <Column Name="Uid" DataType="System.Guid"/>
         <Column Name="Id" DataType="System.Int32"/>
         <Column Name="Name" DataType="System.String"/>
-        <Column Name="Group" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.GoodGroup, Market, Version=6.2.0.1337, Culture=neutral, PublicKeyToken=null">
+        <Column Name="Group" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.GoodGroup, Market, Version=6.2.0.1340, Culture=neutral, PublicKeyToken=null">
           <Column Name="Uid" DataType="System.Guid"/>
           <Column Name="Name" DataType="System.String"/>
           <Column Name="ParentGroupUid" DataType="System.Guid"/>
@@ -52,7 +52,7 @@ namespace FastReport
         </Column>
         <Column Name="Barcode" DataType="System.String"/>
         <Column Name="UnitName" DataType="System.String"/>
-        <Column Name="Unit" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Unit, Market, Version=6.2.0.1337, Culture=neutral, PublicKeyToken=null">
+        <Column Name="Unit" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Unit, Market, Version=6.2.0.1340, Culture=neutral, PublicKeyToken=null">
           <Column Name="FullName" DataType="System.String"/>
           <Column Name="ShortName" DataType="System.String"/>
           <Column Name="Code" DataType="System.String"/>
@@ -62,7 +62,10 @@ namespace FastReport
         <Column Name="NdsValue" DataType="System.Decimal"/>
         <Column Name="TotalCount" DataType="System.Decimal"/>
         <Column Name="Description" DataType="System.String"/>
-        <BusinessObjectDataSource Name="BusinessObjectDataSource1" Alias="Properties" Enabled="false" DataType="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" PropName="Properties"/>
+        <Column Name="BusinessObjectDataSource2" Alias="Properties" DataType="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" PropName="Properties">
+          <Column Name="Key" DataType="System.String"/>
+          <Column Name="Value" DataType="System.Object"/>
+        </Column>
       </Column>
       <Column Name="Quantity" DataType="System.Decimal"/>
       <Column Name="Price" DataType="System.Decimal"/>
@@ -111,13 +114,16 @@ namespace FastReport
     <Parameter Name="UserName" DataType="System.String"/>
     <Parameter Name="UserPhone" DataType="System.String"/>
     <Parameter Name="TotalPaymentSum" DataType="System.Decimal"/>
+    <Parameter Name="0cfe958e-a261-4f75-b9e2-3f12811efdf9" DataType="System.String"/>
+    <Parameter Name="67637928-762e-41e0-9388-6973c51bd754" DataType="System.String"/>
+    <Parameter Name="e1ef7587-8387-47a4-a07f-dfd9ed5f3068" DataType="System.String"/>
     <Total Name="TotalWorksSumm" Expression="[goods.Sum]" Evaluator="Data1" PrintOn="DataFooter1" ResetAfterPrint="false"/>
     <Total Name="TotalMaterialsSumm" Expression="[goods.Sum]" Evaluator="Data2" PrintOn="DataFooter2" ResetAfterPrint="false"/>
   </Dictionary>
   <ReportPage Name="Page1" Guides="9.45,718.2,689.87,62.06,350.91,441.32,531.73,622.14,699.78,68.07,360.98,455.33,541.58,636.2,689.85,695.72,628.53,269.3,250.49,670.95" Watermark.Font="Arial, 60pt">
     <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="340.2" CanGrow="true" Guides="75.6,103.95,9.45">
       <TextObject Name="Text5" Left="9.45" Top="94.5" Width="680.4" Height="28.35" CanGrow="true" Text="Заказ-наряд №[DocumentNumber] от [FormatDateTime([Date],&quot;dd MMMM yyyy&quot;)] г." HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
-      <TextObject Name="Text1" Left="9.45" Top="75.6" Width="680.4" Height="18.9" Border.Lines="Bottom" Border.BottomLine.Style="Double" CanGrow="true" CanShrink="true" Text="[CompanyInfo]" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text1" Left="9.45" Top="66.15" Width="680.4" Height="28.35" Border.Lines="Bottom" Border.BottomLine.Style="Double" CanGrow="true" CanShrink="true" Text="[CompanyInfo]" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
       <TextObject Name="Text4" Left="9.45" Top="18.9" Width="557.55" Height="37.8" CanGrow="true" CanShrink="true" Text="&#13;&#10;[CompanyName]" VertAlign="Bottom" Font="Arial, 20pt, style=Bold" FontWidthRatio="1.3"/>
       <TextObject Name="Text6" Left="9.45" Top="132.3" Width="103.95" Height="18.9" Text="Автомобиль" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
       <TextObject Name="Text7" Left="9.45" Top="151.2" Width="85.05" Height="18.9" Text="Гос. номер" VertAlign="Bottom" Font="Arial, 8pt"/>
@@ -139,56 +145,55 @@ namespace FastReport
       <TextObject Name="Text47" Left="94.5" Top="283.5" Width="595.35" Height="47.25" Border.Lines="All" Font="Arial, 10pt"/>
       <CellularTextObject Name="CellularText1" Left="378" Top="198.45" Width="311.85" Height="18.9" Text="[clientPhone]" Font="Arial, 8pt"/>
     </ReportTitleBand>
-    <DataBand Name="Data1" Top="388.24" Width="718.2" Height="15.12" CanGrow="true" Guides="0,18.9" DataSource="goods" Filter="[goods.Good.Group.GoodsType]==&quot;Услуги&quot;">
+    <DataBand Name="Data1" Top="396.03" Width="718.2" Height="15.12" CanGrow="true" Guides="0,18.9" DataSource="goods" Filter="[goods.Good.Group.GoodsType]==&quot;Услуги&quot;">
       <TextObject Name="Text55" Left="66.15" Width="321.3" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.Good.Group.GoodsType]" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text56" Left="387.45" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.Price]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text57" Left="463.05" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.Quantity]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text58" Left="538.65" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.Discount]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text59" Left="614.25" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" Border.RightLine.Width="2" CanGrow="true" GrowToBottom="true" Text="[goods.Sum]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text71" Left="9.45" Width="56.7" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" Border.LeftLine.Width="2" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-      <DataHeaderBand Name="DataHeader1" Top="342.49" Width="718.2" Height="43.47">
-        <TextObject Name="Text52" Left="538.65" Top="28.35" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Скидка, %" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text17" Left="9.45" Top="28.35" Width="56.7" Height="15.12" Border.Lines="All" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text49" Left="66.15" Top="28.35" Width="321.3" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Наименование" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text50" Left="387.45" Top="28.35" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Цена" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text51" Left="463.05" Top="28.35" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Кол-во" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text53" Left="614.25" Top="28.35" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Сумма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text26" Left="9.45" Width="680.4" Height="28.35" Border.Lines="Top" Border.TopLine.Style="Double" CanGrow="true" Text="Выполненные работы по заказ-наряду №[DocumentNumber] от [FormatDateTime([Date],&quot;dd.MM.yyyy&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <DataHeaderBand Name="DataHeader1" Top="341.65" Width="718.2" Height="52.92">
+        <TextObject Name="Text52" Left="538.65" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Скидка, %" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text17" Left="9.45" Top="37.8" Width="56.7" Height="15.12" Border.Lines="All" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text49" Left="66.15" Top="37.8" Width="321.3" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Наименование" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text50" Left="387.45" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Цена" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text51" Left="463.05" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Кол-во" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text53" Left="614.25" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Сумма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text26" Left="9.45" Width="680.4" Height="37.8" Border.Lines="Top" Border.TopLine.Style="Double" CanGrow="true" Text="Выполненные работы по заказ-наряду №[DocumentNumber] от [FormatDateTime([Date],&quot;dd.MM.yyyy&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
       </DataHeaderBand>
-      <DataFooterBand Name="DataFooter1" Top="405.65" Width="718.2" Height="34.02">
+      <DataFooterBand Name="DataFooter1" Top="412.6" Width="718.2" Height="34.02">
         <TextObject Name="Text73" Left="614.25" Width="75.6" Height="15.12" Border.Lines="All" Border.Width="2" CanGrow="true" Text="[TotalWorksSumm]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
         <TextObject Name="Text74" Left="9.45" Width="604.8" Height="15.12" Border.Lines="Top" Border.TopLine.Width="2" CanGrow="true" Text="Итого работ на сумму:" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
         <TextObject Name="Text77" Left="9.45" Top="18.9" Width="680.4" Height="15.12" CanGrow="true" GrowToBottom="true" Text="Работ выполнено на сумму [ToWordsRu([TotalWorksSumm])]" Font="Arial, 8pt"/>
       </DataFooterBand>
     </DataBand>
-    <DataBand Name="Data2" Top="497.16" Width="718.2" Height="15.12" CanGrow="true" DataSource="goods" Filter="[goods.Good.Group.GoodsType]!=&quot;Услуги&quot;">
+    <DataBand Name="Data2" Top="511.9" Width="718.2" Height="15.12" CanGrow="true" DataSource="goods" Filter="[goods.Good.Group.GoodsType]!=&quot;Услуги&quot;">
       <TextObject Name="Text66" Left="66.15" Width="321.3" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.DisplayedName]" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text67" Left="387.45" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.Price]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text68" Left="463.05" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.Quantity]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text69" Left="538.65" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[goods.Discount]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text70" Left="614.25" Width="75.6" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" Border.RightLine.Width="2" CanGrow="true" GrowToBottom="true" Text="[goods.Sum]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
       <TextObject Name="Text54" Left="9.45" Width="56.7" Height="15.12" Anchor="Top, Bottom, Left" Border.Lines="All" Border.LeftLine.Width="2" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-      <DataHeaderBand Name="DataHeader2" Top="441.95" Width="718.2" Height="52.92">
-        <TextObject Name="Text60" Left="538.65" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Скидка, %" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text61" Left="66.15" Top="37.8" Width="321.3" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Наименование" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text62" Left="387.45" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Цена" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text63" Left="463.05" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Кол-во" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text64" Left="614.25" Top="37.8" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Сумма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text65" Left="9.45" Top="37.8" Width="56.7" Height="15.12" Border.Lines="All" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
-        <TextObject Name="Text72" Left="9.45" Top="9.45" Width="680.4" Height="28.35" Border.Lines="Top" Border.TopLine.Style="Double" CanGrow="true" Text="Расходная накладная к заказ-наряду №[DocumentNumber] от [FormatDateTime([Date],&quot;dd.MM.yyyy&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <DataHeaderBand Name="DataHeader2" Top="448.08" Width="718.2" Height="62.37">
+        <TextObject Name="Text60" Left="538.65" Top="47.25" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Скидка, %" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text61" Left="66.15" Top="47.25" Width="321.3" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Наименование" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text62" Left="387.45" Top="47.25" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Цена" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text63" Left="463.05" Top="47.25" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="Кол-во" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text64" Left="614.25" Top="47.25" Width="75.6" Height="15.12" Border.Lines="All" Border.TopLine.Width="2" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Сумма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text65" Left="9.45" Top="47.25" Width="56.7" Height="15.12" Border.Lines="All" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.BottomLine.Width="2" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text72" Left="9.45" Top="9.45" Width="680.4" Height="37.8" Border.Lines="Top" Border.TopLine.Style="Double" CanGrow="true" Text="Расходная накладная к заказ-наряду №[DocumentNumber] от [FormatDateTime([Date],&quot;dd.MM.yyyy&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
       </DataHeaderBand>
-      <DataFooterBand Name="DataFooter2" Top="514.56" Width="718.2" Height="37.8">
+      <DataFooterBand Name="DataFooter2" Top="528.48" Width="718.2" Height="37.8">
         <TextObject Name="Text75" Left="614.25" Width="75.6" Height="15.12" Border.Lines="All" Border.Width="2" CanGrow="true" Text="[TotalMaterialsSumm]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
         <TextObject Name="Text76" Left="9.45" Width="604.8" Height="15.12" Border.Lines="Top" Border.TopLine.Width="2" CanGrow="true" GrowToBottom="true" Text="Итого материалов на сумму:" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
         <TextObject Name="Text78" Left="9.45" Top="18.9" Width="680.4" Height="15.12" CanGrow="true" GrowToBottom="true" Text="Всего материалов на сумму [ToWordsRu([TotalMaterialsSumm])]" Font="Arial, 8pt"/>
       </DataFooterBand>
     </DataBand>
-    <ReportSummaryBand Name="ReportSummary1" Top="554.65" Width="718.2" Height="66.15" CanGrow="true" CanShrink="true" Guides="28.35,47.25,0,18.9,85.05,103.95">
-      <TextObject Name="Text2" Left="9.45" Width="680.4" Height="18.9" Border.Lines="Top" Border.TopLine.Style="Double" CanGrow="true" Text="Всего по заказ-наряду: [ToWordsRu([TotalWorksSumm]+[TotalMaterialsSumm])]. НДС не облагается.&#13;&#10;" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    <ReportSummaryBand Name="ReportSummary1" Top="567.73" Width="718.2" Height="66.15" CanGrow="true" CanShrink="true" Guides="28.35,47.25,0,18.9,85.05,103.95">
+      <TextObject Name="Text2" Left="9.45" Width="680.4" Height="37.8" Border.Lines="Top" Border.TopLine.Style="Double" CanGrow="true" Text="Всего по заказ-наряду: [ToWordsRu([TotalWorksSumm]+[TotalMaterialsSumm])]. НДС не облагается.&#13;&#10;" Font="Arial, 10pt, style=Bold"/>
       <TextObject Name="Text79" Left="9.45" Top="37.8" Width="75.6" Height="18.9" CanGrow="true" GrowToBottom="true" Text="К оплате:" Font="Arial, 10pt, style=Bold"/>
       <TextObject Name="Text80" Left="75.6" Top="37.8" Width="444.15" Height="18.9" CanGrow="true" GrowToBottom="true" Text=" [[TotalWorksSumm]+[TotalMaterialsSumm]]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text81" Left="9.45" Top="18.9" Width="680.4" Height="18.9" CanGrow="true" GrowToBottom="true" Font="Arial, 10pt, style=Bold"/>
-      <ChildBand Name="Child1" Top="623.09" Width="718.2" Height="236.25">
+      <ChildBand Name="Child1" Top="635.34" Width="718.2" Height="236.25">
         <TextObject Name="Text32" Left="9.45" Top="189" Width="699.3" Height="47.25" Border.Lines="Top" Border.TopLine.Style="Double" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
         <TextObject Name="Text3" Left="9.45" Top="160.65" Width="340.2" Height="18.9" Text="Мастер: _________(__________________________)" Font="Arial, 8pt"/>
         <TextObject Name="Text27" Left="349.65" Top="160.65" Width="359.1" Height="18.9" Text="Заказчик: _________([IIf((Length([ClientName])==0),&quot;____________________________&quot;,[ClientName])])" HorzAlign="Right" Font="Arial, 8pt"/>
